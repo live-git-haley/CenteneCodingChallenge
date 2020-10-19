@@ -12,7 +12,9 @@ This project incorporates features of a Full-Stack application such as:
 <h2> Structure </h2>
 Spring boot (Java) utilizing hibernate and JPA for data persistence
 Management of MySQL database that supports a one-to-many relationship
-One Enrollee can have many Dependents 
+<ul>
+ <li> One Enrollee can have many Dependents </li>
+</ul>
 <h2> Data Persistence </h2>
 Data persistence has been implemented using the hibernate framework and MySQL to support a RESTful interface.
 <h2> Setting up the test MySQL Database </h2>
