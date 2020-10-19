@@ -43,15 +43,15 @@ public class EnrolleeController {
 	
 	@GetMapping("/enrollee/{id}")
 	@ApiOperation(value = "Returns Enrollee by enrolleeID")
-	public Enrollee getEnrolleeById(@PathVariable int id) {
+	public <T> T getEnrolleeById(@PathVariable int id) {
 
 		Optional<Enrollee> enrollee = service.findById(id);
 		if (enrollee.isPresent()) {
-			return enrollee.get();
+			return (T) enrollee.get();
 
 		}
 		
-		return new Enrollee();
+		return (T) ResponseEntity.status(200).body("There are no enrollees with ID " + id);
 
 
 	}

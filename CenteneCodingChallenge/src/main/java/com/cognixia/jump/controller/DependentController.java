@@ -47,32 +47,38 @@ public class DependentController {
 	
 		@GetMapping("/dependentId/{id}")
 		@ApiOperation(value = "Return Dependent by dependentID")
-		public Dependent findDependentById(@PathVariable int id) {
+		public <T> T findDependentById(@PathVariable int id) {
 			Optional<Dependent> dependent = service.findById(id);
 			if (dependent.isPresent()) {
-				return dependent.get();
+				return (T) dependent.get();
 
 			}
 			
-			return new Dependent();
+			return (T) ResponseEntity.status(200).body("There are no dependents with ID " + id);
 	
 
 		}
 
 		@GetMapping("/dependents/{enrolleeId}")
 		@ApiOperation(value = "Return a list of all dependents associated with enrolleeID given")
-		public List<Dependent> getDependentsByEnrolleeId(@PathVariable int enrolleeId) {
+		public <T> T getDependentsByEnrolleeId(@PathVariable int enrolleeId) throws Exception {
 
 			List<Dependents> dependent = service2.findByEnrolleeId(enrolleeId);
 			List<Dependent> list = new ArrayList();
-			
+			boolean found = false;
 			for(Dependents i: dependent) {
 				
 				list.add(findDependentById(i.getDependentId()));
 			}
 			
+			if(list.size() == 0) {
+				return  (T) ResponseEntity.status(200).body("This enrollee does not have any associated dependents");
+				
+			}
 			
-			return list;
+			
+			
+			return (T) list;
 
 
 		}
