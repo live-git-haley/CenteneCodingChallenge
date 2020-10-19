@@ -8,6 +8,8 @@ This project incorporates features of a Full-Stack application such as:
 <ul>
 <li> REST API </li>
 <li> Microservice-based architecture featuring  </li>
+ <li> Swagger Api Documentation located at http://localhost:8080/swagger-ui.html (Port number changes according to machine) </li
+
  </ul>
 <h2> Structure </h2>
 Spring boot (Java) utilizing hibernate and JPA for data persistence
