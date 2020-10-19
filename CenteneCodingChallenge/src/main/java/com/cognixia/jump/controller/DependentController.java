@@ -21,8 +21,12 @@ import com.cognixia.jump.model.Enrollee;
 import com.cognixia.jump.repository.DependentEnrolleeRepository;
 import com.cognixia.jump.repository.DependentRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api")
+@Api(value = "value block HERE", description = "Controller to access information on dependents")
 public class DependentController {
 	
 		
@@ -33,14 +37,16 @@ public class DependentController {
 		DependentEnrolleeRepository service2;
 
 		@GetMapping("/dependents")
+		@ApiOperation(value = "Return a list of all dependents in the db")
 		public List<Dependent> getAllDependents() {
 
 			return service.findAll();
 
 		}
 		
-		
+	
 		@GetMapping("/dependentId/{id}")
+		@ApiOperation(value = "Return Dependent by dependentID")
 		public Dependent findDependentById(@PathVariable int id) {
 			Optional<Dependent> dependent = service.findById(id);
 			if (dependent.isPresent()) {
@@ -54,6 +60,7 @@ public class DependentController {
 		}
 
 		@GetMapping("/dependents/{enrolleeId}")
+		@ApiOperation(value = "Return a list of all dependents associated with enrolleeID given")
 		public List<Dependent> getDependentsByEnrolleeId(@PathVariable int enrolleeId) {
 
 			List<Dependents> dependent = service2.findByEnrolleeId(enrolleeId);
@@ -71,6 +78,7 @@ public class DependentController {
 		}
 		
 		@PostMapping("/add/dependent/{enrolleeId}")
+		@ApiOperation(value = "Add a Dependent into the db")
 		public void addDependent(@RequestBody Dependent newDependent, @PathVariable int enrolleeId) {
 
 			newDependent.setId(-1);
@@ -89,8 +97,9 @@ public class DependentController {
 
 		}
 		
-
+		
 		@DeleteMapping("/delete/dependent/{dependentId}/{enrolleeId}")
+		@ApiOperation(value = "Delete Dependent by dependentID")
 		public ResponseEntity<String> deleteDependentFromEnrollee(@PathVariable int enrolleeId, @PathVariable int dependentId) {
 			List<Dependents> dependents = service2.findAll();
 			boolean deleted = false;
@@ -114,6 +123,7 @@ public class DependentController {
 		}
 		
 		@PatchMapping("/update/dependent")
+		@ApiOperation(value = "Update a Dependent")
 		public ResponseEntity <String> updateDependent(@RequestBody Dependent dependent) {
 			System.out.println();
 			Optional<Dependent> found = service.findById(dependent.getId());

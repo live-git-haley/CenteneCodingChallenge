@@ -40,6 +40,7 @@ public class SwaggerConfig {
 		
 	}
 	
+	
 	private ApiInfo apiDetails() {
 		
 		return new ApiInfo(

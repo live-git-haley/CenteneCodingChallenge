@@ -19,22 +19,30 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cognixia.jump.model.Enrollee;
 import com.cognixia.jump.repository.EnrolleeRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api")
+@Api(value = "value block HERE", description = "Controller to access information on enrollees")
+
 public class EnrolleeController {
 	
 	@Autowired
 	EnrolleeRepository service;
 
 	@GetMapping("/enrollees")
+	@ApiOperation(value = "Returns all enrollees")
+
 	public List<Enrollee> getAllEnrollees() {
 
 		return service.findAll();
 
 	}
 	
-
+	
 	@GetMapping("/enrollee/{id}")
+	@ApiOperation(value = "Returns Enrollee by enrolleeID")
 	public Enrollee getEnrolleeById(@PathVariable int id) {
 
 		Optional<Enrollee> enrollee = service.findById(id);
@@ -47,8 +55,8 @@ public class EnrolleeController {
 
 
 	}
-	
 	@PostMapping("/add/enrollee")
+	@ApiOperation(value = "Add Enrollee into db")
 	public void addEnrollee(@RequestBody Enrollee newEnrollee) {
 
 		newEnrollee.setId(-1);
@@ -59,6 +67,7 @@ public class EnrolleeController {
 	
 	
 	@DeleteMapping("/delete/enrollee/{id}")
+	@ApiOperation(value = "Delete Enrollee by enrolleeID")
 	public ResponseEntity<String> deleteEnrollee(@PathVariable int id) {
 		Optional<Enrollee> found = service.findById(id);
 		if (found.isPresent()) {
@@ -75,7 +84,8 @@ public class EnrolleeController {
 	}
 	
 	@PatchMapping("/update/enrollee")
-	public ResponseEntity <String> updateLocation(@RequestBody Enrollee enrollee) {
+	@ApiOperation(value = "Update Enrollee information")
+	public ResponseEntity <String> updateEnrollee(@RequestBody Enrollee enrollee) {
 		System.out.println();
 		Optional<Enrollee> found = service.findById(enrollee.getId());
 		if(found.isPresent()) {
