@@ -8,15 +8,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Enrollee implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(value = "Enrollee ID")
 	private int id;
+	@ApiModelProperty(value = "Full Name of Enrollee")
 	private String name;
+	@ApiModelProperty(value = "Status of Enrollee (0) inactive, (1) active")
 	private int status;
+	@ApiModelProperty(value = "Enrollee Date of Birth")
 	private String dob;
+	@ApiModelProperty(value = "Enrollee phone number (optional)")
 	private String phone;
 	
 	public Enrollee(int id, String name, int status, String dob, String phone) {

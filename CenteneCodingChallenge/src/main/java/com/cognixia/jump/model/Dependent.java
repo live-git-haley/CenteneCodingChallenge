@@ -7,13 +7,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Dependent {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(value = "Dependent ID ")
 	private int id;
+	@ApiModelProperty(value = "Full Name of Dependent")
 	private String name;
+	@ApiModelProperty(value = "Dependent Date of Birth")
 	private String dob;
 	
 	public Dependent(int id, String name, String dob) {
