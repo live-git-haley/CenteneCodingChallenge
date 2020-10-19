@@ -18,7 +18,7 @@ Management of MySQL database that supports a one-to-many relationship
 <ul>
  <li> One Enrollee can have many Dependents </li>
 </ul>
-Swagger API Documentation : located at http://localhost:8080/swagger-ui.html (Access through the browser, port number changes according to machine)
+<b> Swagger API Documentation </b>- located at http://localhost:8080/swagger-ui.html (Access through the browser, port number changes according to machine)
 <h2> Data Persistence </h2>
 Data persistence has been implemented using the hibernate framework and MySQL to support a RESTful interface.
 <h2> Setting up MySQL Database </h2>
