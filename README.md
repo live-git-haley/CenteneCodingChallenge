@@ -18,5 +18,5 @@ Management of MySQL database that supports a one-to-many relationship
 <h2> Data Persistence </h2>
 Data persistence has been implemented using the hibernate framework and MySQL to support a RESTful interface.
 <h2> Setting up MySQL Database </h2>
-The project sql scripts can be found under “INSERT DIRECT PATH HERE” . Run this Sql script on your backend and the dummy data will be inserted into your tables.
+The project sql scripts can be found under src/main/resources/scripts/customers.sql . Run this Sql script on your backend and the dummy data will be inserted into your tables.
 
