@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 import com.cognixia.jump.model.Dependents;
 import com.cognixia.jump.model.Enrollee;
 
+
+/**
+ * Repository for DependentEnrollee 
+ * 
+ */
 @Repository
 public interface DependentEnrolleeRepository extends JpaRepository<Dependents,Integer>{
 	

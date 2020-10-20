@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.cognixia.jump.model.Enrollee;
-
+/**
+ * Service class for Enrollees 
+ * 
+ */
 @Service 
 public interface EnrolleeService {
 	

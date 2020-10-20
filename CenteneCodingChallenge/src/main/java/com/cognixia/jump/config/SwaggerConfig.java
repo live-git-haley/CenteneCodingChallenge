@@ -1,10 +1,5 @@
 package com.cognixia.jump.config;
-/*
- * Access through postman: http://localhost:8080/v2/api-docs
- * 
- * Access through browser: http://localhost:8080/swagger-ui.html
- * 
- * */
+
 
 import java.util.Collections;
 
@@ -20,6 +15,13 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+
+/**
+ * Swagger Configuration detail class 
+ * 
+ * Access through postman: http://localhost:8080/v2/api-docs
+ * Access through browser: http://localhost:8080/swagger-ui.html
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {

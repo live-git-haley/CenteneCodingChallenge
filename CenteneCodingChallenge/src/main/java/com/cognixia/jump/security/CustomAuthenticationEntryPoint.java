@@ -2,6 +2,7 @@ package com.cognixia.jump.security;
 
 
 import org.springframework.http.MediaType;
+
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 
@@ -10,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+/**
+ * Security configuration class to customize authentication
+ * 
+ */
 
 public class CustomAuthenticationEntryPoint extends BasicAuthenticationEntryPoint {
 

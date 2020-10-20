@@ -10,6 +10,11 @@ import javax.persistence.Id;
 
 import io.swagger.annotations.ApiModelProperty;
 
+
+/**
+ * Model class to define details of Enrollee
+ * 
+ */
 @Entity
 public class Enrollee implements Serializable{
 	

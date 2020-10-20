@@ -3,7 +3,10 @@ package com.cognixia.jump.security;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
+/**
+ * Security class to specify permission to access API requests 
+ * 
+ */
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override

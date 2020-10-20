@@ -1,6 +1,8 @@
 package com.cognixia.jump.controller;
 
 import java.util.List;
+
+
 import java.util.Map;
 import java.util.Optional;
 
@@ -22,6 +24,12 @@ import com.cognixia.jump.repository.EnrolleeRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+
+/**
+ * Controller for API calls to access Enrollees in the db 
+ * 
+ */
+
 @RestController
 @RequestMapping("/api")
 @Api(value = "value block HERE", description = "Controller to access information on enrollees")
@@ -30,17 +38,25 @@ public class EnrolleeController {
 	
 	@Autowired
 	EnrolleeRepository service;
-
+	
+	
+	/**
+	 * API mapping to retrieve all enrollees in the database
+	 * @return List of enrollees
+	 */
 	@GetMapping("/enrollees")
 	@ApiOperation(value = "Returns all enrollees")
-
 	public List<Enrollee> getAllEnrollees() {
-
 		return service.findAll();
 
 	}
 	
 	
+	/**
+	 * API mapping to retrieve enrollee by enrolleeID
+	 * @param enrollee id 
+	 * @return <T> casted from a ResponseEntity or Enrollee
+	 */
 	@GetMapping("/enrollee/{id}")
 	@ApiOperation(value = "Returns Enrollee by enrolleeID")
 	public <T> T getEnrolleeById(@PathVariable int id) {
@@ -55,6 +71,11 @@ public class EnrolleeController {
 
 
 	}
+	
+	/**
+	 * API mapping to add enrollee into the db
+	 * @param enrollee from the Api resquest body
+	 */
 	@PostMapping("/add/enrollee")
 	@ApiOperation(value = "Add Enrollee into db")
 	public void addEnrollee(@RequestBody Enrollee newEnrollee) {
@@ -66,6 +87,11 @@ public class EnrolleeController {
 	}
 	
 	
+	/**
+	 * API mapping to delete enrollee by enrolleeID
+	 * @param enrollee id 
+	 * @return ResponseEntity response retrieved from the request
+	 */
 	@DeleteMapping("/delete/enrollee/{id}")
 	@ApiOperation(value = "Delete Enrollee by enrolleeID")
 	public ResponseEntity<String> deleteEnrollee(@PathVariable int id) {
@@ -83,10 +109,16 @@ public class EnrolleeController {
 
 	}
 	
+	
+	
+	/**
+	 * API mapping to update an existing enrollee
+	 * @param RequestBody enrollee with updated information
+	 * @return ResponseEntity response retrieved from the request
+	 */
 	@PatchMapping("/update/enrollee")
 	@ApiOperation(value = "Update Enrollee information")
 	public ResponseEntity <String> updateEnrollee(@RequestBody Enrollee enrollee) {
-		System.out.println();
 		Optional<Enrollee> found = service.findById(enrollee.getId());
 		if(found.isPresent()) {
 			service.save(enrollee);

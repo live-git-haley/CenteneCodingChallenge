@@ -9,6 +9,11 @@ import javax.persistence.Id;
 
 import io.swagger.annotations.ApiModelProperty;
 
+
+/**
+ * Model class to define details of Dependent
+ * 
+ */
 @Entity
 public class Dependent {
 	
