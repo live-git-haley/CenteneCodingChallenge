@@ -29,7 +29,6 @@ public class CustomAuthenticationEntryPoint extends BasicAuthenticationEntryPoin
 
     @Override
     public void afterPropertiesSet() {
-        setRealmName(SecurityConfig.REALM_NAME);
         super.afterPropertiesSet();
     }
 }
